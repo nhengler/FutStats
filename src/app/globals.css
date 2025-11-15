@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme{
+    --color-blue-400: oklch(0.78 0.12 240);
+    --color-blue-500: oklch(0.70 0.15 240);
+    --color-blue-600: oklch(0.62 0.18 240);
+}
+
+.header-bg{
+    background-image: linear-gradient(
+        to right,
+        var(--color-blue-400),
+        var(--color-blue-500),
+        var(--color-blue-600)
+    );
+}
