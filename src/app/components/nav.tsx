@@ -11,15 +11,14 @@ type MenuItem = {
     href: string
 }
 
-export default function Header() {
+export default function Nav() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const menuItems: MenuItem[] = [
         { id: 'home', label: 'Home', href:'' },
         { id: 'ranking', label: 'Ranking', href:'' },
         { id: 'comparison', label: 'Comparison', href:'' }
-    ];
-
+    ]
     function openMenu(): void {
         setIsOpen(prevState => !prevState);
     }
@@ -43,7 +42,7 @@ export default function Header() {
     }, [isOpen]);
 
     return (
-        <header className='flex flex-row header-bg'>
+        <header className='relative flex flex-row header-bg'>
             <div className='flex'>
                 <Image
                     src='/assets/logo.svg'
@@ -57,33 +56,34 @@ export default function Header() {
                     FutStats
                 </span>
                 
-                <div className='md:hidden'>
+                <div className='absolute top-4 right-2 md:hidden'>
                     <button
                         type='button'
                         onClick={openMenu}
                     >
-                        {isOpen ? <X size={20}/> : <Menu size={20}/>}
+                        {isOpen ? <X size={25}/> : <Menu size={25}/>}
                     </button>
                 </div>
 
-                <div 
-                    className={`
-                        flex flex-col gap-2
-                        transition-all duration-200 ease-in-out
-                        ${isOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}
-                    `}
-                >
-                    {menuItems.map(item => (
-                        <a
-                            key={item.id}
-                            href={item.href}
-                            onClick={closeMenu}
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                </div>
-
+            <div 
+                className={`
+                    absolute top-18 right-2 flex flex-col gap-4
+                    transition-all duration-200 ease-in-out
+                    ${isOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}
+                `}
+            >
+                {menuItems.map(item => (
+                    <a
+                        className='menu-label'
+                        key={item.id}
+                        href={item.href}
+                        onClick={closeMenu}
+                    >
+                        {item.label}
+                    </a>
+                ))}
+            </div>
+            
             </div>
         </header>
     );
