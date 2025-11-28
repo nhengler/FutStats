@@ -12,13 +12,14 @@ type MenuItem = {
 }
 
 export default function Nav() {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState <boolean> (false);
 
     const menuItems: MenuItem[] = [
         { id: 'home', label: 'Home', href:'' },
         { id: 'ranking', label: 'Ranking', href:'' },
         { id: 'comparison', label: 'Comparison', href:'' }
     ]
+    
     function openMenu(): void {
         setIsOpen(prevState => !prevState);
     }
@@ -67,7 +68,7 @@ export default function Nav() {
 
             <div 
                 className={`
-                    absolute top-18 right-2 flex flex-col gap-4
+                    absolute top-18 right-2 flex flex-col gap-4 z-10
                     transition-all duration-200 ease-in-out
                     ${isOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}
                 `}
