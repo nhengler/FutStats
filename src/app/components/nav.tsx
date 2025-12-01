@@ -68,7 +68,7 @@ export default function Nav() {
 
             <div 
                 className={`
-                    absolute top-18 right-2 flex flex-col gap-4 z-10
+                    absolute top-16 right-2 flex flex-col gap-2 z-10
                     transition-all duration-200 ease-in-out
                     ${isOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}
                 `}

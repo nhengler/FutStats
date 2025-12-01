@@ -14,6 +14,25 @@
     font-size: small;
 }
 
+/*sections*/
+.player-card{
+    display: grid;
+    place-items: center;
+    width: 80%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-family: "Science Gothic", sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    border-radius: 10%;
+}
+
+.player-card h2{
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+}
+
 /*general*/
 .header-bg{
     background-image: linear-gradient(
