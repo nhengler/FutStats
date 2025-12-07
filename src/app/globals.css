@@ -33,6 +33,20 @@
     font-size: x-large;
 }
 
+.player-stats{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    gap: 3rem;
+    
+}
+
+.player-stats p{
+    font-size: small;
+}
+
 /*general*/
 .header-bg{
     background-image: linear-gradient(
