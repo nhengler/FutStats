@@ -7,42 +7,100 @@ type Player = {
     name: string
     image: string
     label: string
-    href: string
+    stats: {
+        goals: number
+        assists: number
+        passes: number
+        dribbles: number
+        bigChances: number
+        minutes: number
+    }
 }
 
 export default function PlayerSection(){
 
     const playersList: Player[] = [
-        { id: 'rodrygo', label: 'Rodrygo', name: 'Rodrygo', image: '/assets/Rodrygo.png', href:'' },
-        { id: 'endrick', label: 'Endrick', name: 'Endrick', image: '/assets/Endrick.png', href:'' },
-        { id: 'estevao', label: 'Estevão', name: 'Estevão', image: '/assets/Estevao.png', href:'' }
+        { 
+            id: 'rodrygo', 
+            label: 'Rodrygo', 
+            name: 'Rodrygo', 
+            image: '/assets/Rodrygo.png', 
+            stats: {
+                goals: 0,
+                assists: 0,
+                passes: 0,
+                dribbles: 0,
+                bigChances: 0,
+                minutes: 0
+            }
+        },
+
+        {
+            id: 'endrick', 
+            label: 'Endrick', 
+            name: 'Endrick', 
+            image: '/assets/Endrick.png',
+            stats: {
+                goals: 0,
+                assists: 0,
+                passes: 0,
+                dribbles: 0,
+                bigChances: 0,
+                minutes: 0
+            }
+        },
+
+        { 
+            id: 'estevao', 
+            label: 'Estevão', 
+            name: 'Estevão', 
+            image: '/assets/Estevao.png',
+            stats: {
+                goals: 0,
+                assists: 0,
+                passes: 0,
+                dribbles: 0,
+                bigChances: 0,
+                minutes: 0
+            }
+        }
     ]
 
-    const [actualPlayer, selectedPlayer] = useState ('')
+    const [actualPlayer, setActualPlayer] = useState ('')
+
+    const selectedPlayer = playersList.find(p => p.id === actualPlayer)
 
     return(
         <div>
             <section>
                 <div className='relative mx-auto w-fit my-4 z-0'>
-                    <select value={actualPlayer} onChange={(e) => selectedPlayer(e.target.value)}
-                    className='appearance-none px-4 py-2 bg-blue-600 text-white rounded'>
-                        <option value="">Select a player</option>
-                        <option value="Rodrygo" className='player-option'>Rodrygo</option>
-                        <option value="Endrick" className='player-option'>Endrick</option>
-                        <option value="Estevao" className='player-option'>Estevão</option>
+                    
+                    <select value={actualPlayer} onChange={(e) => setActualPlayer(e.target.value)}
+                        className='appearance-none px-4 py-2 bg-blue-600 text-white rounded'>
+                        
+                        <option>Select a player</option>
+                        
+                        {playersList.map(player => (
+                            <option key = {player.id} value = {player.id}>
+                                {player.name}
+                            </option>
+                        ))}
                     </select>
+                
                 </div>
+            
             </section>
 
             <section className='flex justify-center'>
                 <div className='player-card'>
                     <div className='player-pic'>
-                        <h2>Estevão</h2>
+                        <h2>{selectedPlayer?.label}</h2>
                         <Image
-                            src='/assets/Estevao.png'
-                            alt='Estevão picture'
+                            src={selectedPlayer?.image}
+                            alt={`${selectedPlayer?.name} picture`}
                             width={180}
                             height={180}
+                            className='object-cover'
                         />
                     </div>
 
