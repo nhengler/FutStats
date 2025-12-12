@@ -46,7 +46,7 @@ export default function Nav() {
         <header className='relative flex flex-row header-bg'>
             <div className='flex'>
                 <Image
-                    src='/assets/logo.svg'
+                    src='/assets/icons/logo.svg'
                     alt='Logo do site'
                     width={120}
                     height={120}

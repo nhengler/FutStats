@@ -6,6 +6,7 @@ type Player = {
     id: string
     name: string
     image: string
+    position: string
     label: string
     stats: {
         goals: number
@@ -23,8 +24,9 @@ export default function PlayerSection(){
         { 
             id: 'rodrygo', 
             label: 'Rodrygo', 
-            name: 'Rodrygo', 
-            image: '/assets/Rodrygo.png', 
+            name: 'Rodrygo',
+            position: 'LW / RW / CF', 
+            image: '/assets/pictures/Rodrygo.png', 
             stats: {
                 goals: 0,
                 assists: 0,
@@ -39,7 +41,8 @@ export default function PlayerSection(){
             id: 'endrick', 
             label: 'Endrick', 
             name: 'Endrick', 
-            image: '/assets/Endrick.png',
+            position: 'CF',
+            image: '/assets/pictures/Endrick.png',
             stats: {
                 goals: 0,
                 assists: 0,
@@ -54,7 +57,24 @@ export default function PlayerSection(){
             id: 'estevao', 
             label: 'Estevão', 
             name: 'Estevão', 
-            image: '/assets/Estevao.png',
+            position: 'RW ',
+            image: '/assets/pictures/Estevao.png',
+            stats: {
+                goals: 0,
+                assists: 0,
+                passes: 0,
+                dribbles: 0,
+                bigChances: 0,
+                minutes: 0
+            }
+        },
+
+        { 
+            id: 'raphinha', 
+            label: 'Raphinha', 
+            name: 'Raphinha', 
+            position: 'LW / RW / MAT',
+            image: '/assets/pictures/Raphinha.png', 
             stats: {
                 goals: 0,
                 assists: 0,
@@ -69,6 +89,8 @@ export default function PlayerSection(){
     const [actualPlayer, setActualPlayer] = useState ('')
 
     const selectedPlayer = playersList.find(p => p.id === actualPlayer)
+
+    const defaultPlayerImage = '/assets/icons/default-player-icon.svg'
 
     return(
         <div>
@@ -95,8 +117,9 @@ export default function PlayerSection(){
                 <div className='player-card'>
                     <div className='player-pic'>
                         <h2>{selectedPlayer?.label}</h2>
+                        <h3 className='pb-4 text-center'>{selectedPlayer?.position}</h3>
                         <Image
-                            src={selectedPlayer?.image}
+                            src={selectedPlayer?.image || defaultPlayerImage}
                             alt={`${selectedPlayer?.name} picture`}
                             width={180}
                             height={180}
@@ -107,7 +130,7 @@ export default function PlayerSection(){
                     <div className='player-stats'>
                         <div className='goals flex items-center'>  
                             <Image
-                                src='/assets/goal-icon.svg'
+                                src='/assets/icons/goal-icon.svg'
                                 alt='Goal icon'
                                 width={20}
                                 height={20}
@@ -117,8 +140,8 @@ export default function PlayerSection(){
 
                         <div className='big-chances flex items-center'>  
                             <Image
-                                src='/assets/clock-icon.svg'
-                                alt='Goal icon'
+                                src='/assets/icons/clock-icon.svg'
+                                alt='Clock icon'
                                 width={20}
                                 height={20}
                             />
@@ -127,7 +150,7 @@ export default function PlayerSection(){
 
                         <div className='assists flex items-center'>  
                             <Image
-                                src='/assets/assist-icon.svg'
+                                src='/assets/icons/assist-icon.svg'
                                 alt='Assist icon'
                                 width={20}
                                 height={20}
@@ -137,7 +160,7 @@ export default function PlayerSection(){
 
                         <div className='big-chances flex items-center'>  
                             <Image
-                                src='/assets/big-chances-icon.svg'
+                                src='/assets/icons/big-chances-icon.svg'
                                 alt='Big chances icon'
                                 width={20}
                                 height={20}
@@ -148,7 +171,7 @@ export default function PlayerSection(){
 
                         <div className='dribbles flex items-center'>  
                             <Image
-                                src='/assets/dribble-icon.svg'
+                                src='/assets/icons/dribble-icon.svg'
                                 alt='Dribble icon'
                                 width={20}
                                 height={20}
@@ -158,8 +181,8 @@ export default function PlayerSection(){
 
                         <div className='goals flex items-center'>  
                             <Image
-                                src='/assets/passes-icon.svg'
-                                alt='Goal icon'
+                                src='/assets/icons/passes-icon.svg'
+                                alt='Passes icon'
                                 width={20}
                                 height={20}
                             />
