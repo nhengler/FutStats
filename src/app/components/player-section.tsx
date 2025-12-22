@@ -1,22 +1,7 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-
-type Player = {
-    id: string
-    name: string
-    image: string
-    position: string
-    label: string
-    stats: {
-        goals: number
-        assists: number
-        passes: number
-        dribbles: number
-        bigChances: number
-        minutes: number
-    }
-}
+import { Player } from '@/app/types/players'
 
 export default function PlayerSection(){
 
