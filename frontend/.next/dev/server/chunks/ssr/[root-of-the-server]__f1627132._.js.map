@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///E:/FutStats/frontend/app/page.tsx"],"sourcesContent":["export default function Home() {\n  return (\n    <></>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE;AAEJ","debugId":null}}]
+}
