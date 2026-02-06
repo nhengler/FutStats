@@ -16,14 +16,16 @@ export class ApiFootballService {
     this.apiKey = this.configService.get<string>('API_FOOTBALL_KEY')!;
   }
 
-  async getPlayerByName(playerName: string) {
+  async getPlayerByLastName(playerLastName: string, league: string, season: string) {
     const config: AxiosRequestConfig = {
       headers: {
         'x-apisports-key': this.apiKey,
       },
 
       params: {
-        search: playerName, 
+        search: playerLastName, 
+        league,
+        season,
       },
     };
 

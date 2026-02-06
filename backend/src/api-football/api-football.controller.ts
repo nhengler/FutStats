@@ -6,7 +6,7 @@ export class ApiFootballController {
   constructor(private readonly apiFootballService: ApiFootballService) {}
   
   @Get('players')
-  async getPlayer(@Query('name') name: string) {
-    return this.apiFootballService.getPlayerByName(name);
+  async getPlayer(@Query('name') name: string, league: string, season: string) {
+    return this.apiFootballService.getPlayerByLastName(name, league, season);
   }
 }
