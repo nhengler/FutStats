@@ -8,6 +8,6 @@ export class ApiFootballController {
   
   @Get('players')
   async getPlayer(@Query() query: GetPlayersQueryDto) {
-    return this.apiFootballService.getPlayerByLastName(query);
+    return this.apiFootballService.getPlayer(query);
   }
 }

@@ -4,6 +4,7 @@ import { ConfigService } from '@nestjs/config';
 import { AxiosRequestConfig } from 'axios';
 import { GetPlayersQueryDto } from './dto/get-players.query.dto';
 import { lastValueFrom } from 'rxjs';
+import { PlayerResponseDto } from './dto/get-players.response.dto';
 
 @Injectable()
 export class ApiFootballService {
@@ -11,13 +12,23 @@ export class ApiFootballService {
     private readonly httpService: HttpService,
   ) {}
 
-  async getPlayerByLastName(query: GetPlayersQueryDto) {
-    const response = await lastValueFrom(
-      this.httpService.get('/players', {
-        params: query,
-      }),
-    )
+  async getPlayer(query: GetPlayersQueryDto): Promise<PlayerResponseDto[]> {
+    const {data} = await lastValueFrom (this.httpService.get('/players/statistics', {
+      params: query,
+    }));
     
-    return response.data
+    if (!data.response || data.response.length === 0) {
+      return []
+    };
+    
+    return data.response.map((item)=>({
+    goals: item.statistics?.[0]?.goals?.total,
+    assists: item.statistics?.[0]?.goals?.assists,
+    dribbles: item.statistics?.[0]?.dribbles?.success,
+    passes: item.statistics?.[0]?.passes?.total,
+    chances: item.statistics?.[0]?.passes?.key,
+    minutes: item.statistics?.[0]?.games?.minutes
+    }))
   }
 }
+

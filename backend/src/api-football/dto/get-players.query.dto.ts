@@ -1,19 +1,12 @@
-import {IsNotEmpty, IsNumberString, IsOptional, IsString} from 'class-validator';
+import {IsNotEmpty, IsNumberString, IsNumber, IsOptional, IsString} from 'class-validator';
 
 export class GetPlayersQueryDto{
-    @IsString()
-    @IsNotEmpty()
-    search: string;
+    @IsNumberString()
+    league: number;
 
     @IsNumberString()
-    league: string;
+    season: number;
 
     @IsNumberString()
-    season: string;
-
-    @IsString()
-    team: string;
-
-    @IsString()
-    page: string;
+    playerId: number;
 }
