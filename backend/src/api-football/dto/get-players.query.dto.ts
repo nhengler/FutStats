@@ -2,11 +2,12 @@ import {IsNotEmpty, IsNumberString, IsNumber, IsOptional, IsString} from 'class-
 
 export class GetPlayersQueryDto{
     @IsNumberString()
-    league: number;
+    player: string;
+    
+    @IsNumberString()
+    league: string;
 
     @IsNumberString()
-    season: number;
-
-    @IsNumberString()
-    playerId: number;
+    season: string;
+    
 }

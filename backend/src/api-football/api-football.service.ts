@@ -12,12 +12,17 @@ export class ApiFootballService {
     private readonly httpService: HttpService,
   ) {}
 
-  async getPlayer(query: GetPlayersQueryDto): Promise<PlayerResponseDto[]> {
+  async getPlayerStats(query: GetPlayersQueryDto): Promise<PlayerResponseDto[]> {
     const {data} = await lastValueFrom (this.httpService.get('/players/statistics', {
       params: query,
     }));
     
+    console.log('Parâmetros enviados:', data.parameters); //testing
+    console.log('Resultados encontrados:', data.results); //testing
+
+
     if (!data.response || data.response.length === 0) {
+      console.log('Nenhum dado encontrado para:', query);
       return []
     };
     

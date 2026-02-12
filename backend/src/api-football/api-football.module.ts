@@ -1,19 +1,25 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ApiFootballService } from './api-football.service';
 import { ApiFootballController } from './api-football.controller';
+import { PlayersController } from './players.controller';
 
 @Module({
   imports: [
-    HttpModule.register({
-      baseURL: 'https://v3.football.api-sports.io',
-      headers: {
-        'x-apisports-key': process.env.API_FOOTBALL_KEY,
-      },
-    })
+    ConfigModule,
+    HttpModule.registerAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        baseURL: configService.get<string>('API_FOOTBALL_BASE_URL'),
+        headers: {
+          'x-apisports-key': configService.get<string>('API_FOOTBALL_KEY'),
+        },
+      }),
+    }),
   ],
   providers: [ApiFootballService],
   exports: [ApiFootballService],
-  controllers: [ApiFootballController],
+  controllers: [ApiFootballController, PlayersController],
 })
 export class ApiFootballModule {}

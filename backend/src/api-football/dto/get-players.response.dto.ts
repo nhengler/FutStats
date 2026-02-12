@@ -1,5 +1,5 @@
 export class PlayerResponseDto{
-    id: number /*excluir e pegar com a IA*/ 
+    /*id: number excluir e pegar com a IA*/ 
     goals: number
     assists: number
     dribbles: number
