@@ -5,9 +5,18 @@ export class GetPlayersQueryDto{
     player: string;
     
     @IsNumberString()
+    team: string;
+    
+    @IsNumberString()
     league: string;
 
     @IsNumberString()
     season: string;
+
+    @IsString()
+    search: string;
+
+    @IsString()
+    page: string;
     
 }
