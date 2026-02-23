@@ -4,27 +4,57 @@ import Image from "next/image";
 import { Player } from "@/src/types/player";
 import { Stats } from "@/src/types/stats";
 import { playersList } from "../data/playersList";
+import { fetchPlayerStats } from "../services/playersApi";
 
 export default function PlayerSection() {
-  /*---PLAYER SELECTION MENU---*/
+  /*---PLAYER SELECTION---*/
 
-  const [actualPlayer, setActualPlayer] = useState("");
+  const [actualPlayer, setActualPlayer] = useState<number | null>(null);
 
-  const selectedPlayer = playersList.find((p) => p.name === actualPlayer);
+  const selectedPlayer = playersList.find((p) => p.id === actualPlayer);
 
   const defaultPlayerImage = "/assets/icons/default-player-icon.svg";
 
   /*---INSERTION OF API DATAS---*/
-  
-  
+  const [statsById, setstatsById] = useState<Record<number, Stats>>({});
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        setIsLoading(true);
+
+        const season = 2023;
+
+        const results = await Promise.all(
+          playersList.map(async (p) => {
+            const stats = await fetchPlayerStats({ id: p.id, season: season });
+            return { playerAtributes: p.id, stats };
+          })
+        );
+
+        const map: Record<number, Stats> = {};
+
+        results.forEach((r) => {
+          map[r.playerAtributes] = r.stats;
+        });
+
+        setstatsById(map);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    load();
+  }, []);
 
   return (
     <div>
       <section>
         <div className="relative mx-auto w-fit my-4 z-0">
           <select
-            value={actualPlayer}
-            onChange={(e) => setActualPlayer(e.target.value)}
+            value={actualPlayer ?? ""}
+            onChange={(e) => setActualPlayer(Number(e.target.value))}
             className="appearance-none px-4 py-2 bg-blue-600 text-white rounded"
           >
             <option>Select a player</option>
@@ -61,7 +91,13 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Goals</p>
-              <div className="results"></div>
+              <div className="results">
+                {isLoading
+                  ? "..."
+                  : selectedPlayer
+                  ? statsById[selectedPlayer.id]?.goals ?? 0
+                  : 0}
+              </div>
             </div>
 
             <div className="minutes flex items-center">
@@ -72,7 +108,13 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Minutes</p>
-              <div className="results"></div>
+              <div className="results">
+                {isLoading
+                  ? "..."
+                  : selectedPlayer
+                  ? statsById[selectedPlayer.id]?.minutes ?? 0
+                  : 0}
+              </div>
             </div>
 
             <div className="assists flex items-center">
@@ -83,7 +125,13 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Assists</p>
-              <div className="results"></div>
+              <div className="results">
+                {isLoading
+                  ? "..."
+                  : selectedPlayer
+                  ? statsById[selectedPlayer.id]?.assists ?? 0
+                  : 0}
+              </div>
             </div>
 
             <div className="chances flex items-center">
@@ -94,7 +142,13 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Chances</p>
-              <div className="results"></div>
+              <div className="results">
+                {isLoading
+                  ? "..."
+                  : selectedPlayer
+                  ? statsById[selectedPlayer.id]?.chances ?? 0
+                  : 0}
+              </div>
             </div>
 
             <div className="dribbles flex items-center">
@@ -105,7 +159,13 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Dribbles</p>
-              <div className="results"></div>
+              <div className="results">
+                {isLoading
+                  ? "..."
+                  : selectedPlayer
+                  ? statsById[selectedPlayer.id]?.dribbles ?? 0
+                  : 0}
+              </div>
             </div>
 
             <div className="goals flex items-center">
@@ -116,7 +176,13 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Passes</p>
-              <div className="results"></div>
+              <div className="results">
+                {isLoading
+                  ? "..."
+                  : selectedPlayer
+                  ? statsById[selectedPlayer.id]?.passes ?? 0
+                  : 0}
+              </div>
             </div>
           </div>
         </div>

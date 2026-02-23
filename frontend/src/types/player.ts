@@ -1,15 +1,10 @@
+import { Stats } from "./stats";
+
 export type Player = {
   id: number;
   name: string;
   image: string;
   position: string;
   label: string;
-  stats: {
-    goals: number;
-    assists: number;
-    passes: number;
-    dribbles: number;
-    chances: number;
-    minutes: number;
-  };
+  stats: Stats;
 };
