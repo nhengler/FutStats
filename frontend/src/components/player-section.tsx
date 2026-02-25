@@ -83,7 +83,7 @@ export default function PlayerSection() {
           </div>
 
           <div className="player-stats">
-            <div className="goals flex items-center">
+            <div className="goals flex items-center relative">
               <Image
                 src="/assets/icons/goal-icon.svg"
                 alt="Goal icon"
@@ -91,7 +91,7 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Goals</p>
-              <div className="results">
+              <div className="results absolute">
                 {isLoading
                   ? "..."
                   : selectedPlayer
@@ -100,7 +100,7 @@ export default function PlayerSection() {
               </div>
             </div>
 
-            <div className="minutes flex items-center">
+            <div className="minutes flex items-center relative">
               <Image
                 src="/assets/icons/clock-icon.svg"
                 alt="Clock icon"
@@ -108,7 +108,7 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Minutes</p>
-              <div className="results">
+              <div className="results absolute">
                 {isLoading
                   ? "..."
                   : selectedPlayer
@@ -117,7 +117,7 @@ export default function PlayerSection() {
               </div>
             </div>
 
-            <div className="assists flex items-center">
+            <div className="assists flex items-center relative">
               <Image
                 src="/assets/icons/assist-icon.svg"
                 alt="Assist icon"
@@ -125,7 +125,7 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Assists</p>
-              <div className="results">
+              <div className="results absolute">
                 {isLoading
                   ? "..."
                   : selectedPlayer
@@ -134,7 +134,7 @@ export default function PlayerSection() {
               </div>
             </div>
 
-            <div className="chances flex items-center">
+            <div className="chances flex items-center relative">
               <Image
                 src="/assets/icons/big-chances-icon.svg"
                 alt="Big chances icon"
@@ -142,7 +142,7 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Chances</p>
-              <div className="results">
+              <div className="results absolute">
                 {isLoading
                   ? "..."
                   : selectedPlayer
@@ -151,7 +151,7 @@ export default function PlayerSection() {
               </div>
             </div>
 
-            <div className="dribbles flex items-center">
+            <div className="dribbles flex items-center relative">
               <Image
                 src="/assets/icons/dribble-icon.svg"
                 alt="Dribble icon"
@@ -159,7 +159,7 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Dribbles</p>
-              <div className="results">
+              <div className="results absolute">
                 {isLoading
                   ? "..."
                   : selectedPlayer
@@ -168,7 +168,7 @@ export default function PlayerSection() {
               </div>
             </div>
 
-            <div className="goals flex items-center">
+            <div className="goals flex items-center relative">
               <Image
                 src="/assets/icons/passes-icon.svg"
                 alt="Passes icon"
@@ -176,7 +176,7 @@ export default function PlayerSection() {
                 height={20}
               />
               <p className="ml-2">Passes</p>
-              <div className="results">
+              <div className="results absolute">
                 {isLoading
                   ? "..."
                   : selectedPlayer
