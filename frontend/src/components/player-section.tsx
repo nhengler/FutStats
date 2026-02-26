@@ -5,6 +5,8 @@ import { Player } from "@/src/types/player";
 import { Stats } from "@/src/types/stats";
 import { playersList } from "../data/playersList";
 import { fetchPlayerStats } from "../services/playersApi";
+import { RadarData } from "../types/radarData";
+import PlayerRadar from "./playerRadar";
 
 export default function PlayerSection() {
   /*---PLAYER SELECTION---*/
@@ -31,7 +33,7 @@ export default function PlayerSection() {
           playersList.map(async (p) => {
             const stats = await fetchPlayerStats({ id: p.id, season: season });
             return { playerAtributes: p.id, stats };
-          })
+          }),
         );
 
         const map: Record<number, Stats> = {};
@@ -47,6 +49,21 @@ export default function PlayerSection() {
     }
     load();
   }, []);
+
+  /*---RADAR INFO---*/
+  const selectedId = selectedPlayer?.id;
+
+  const stats = selectedId ? statsById[selectedId] : null;
+
+  const radarStats =
+    selectedPlayer && stats
+      ? [
+          { attribute: "ATT", value: stats.goals ?? 0 },
+          { attribute: "CRE", value: stats.goals ?? 0 },
+          { attribute: "TEC", value: stats.goals ?? 0 },
+          { attribute: "DRI", value: stats.goals ?? 0 },
+        ]
+      : []; // change to radar values
 
   return (
     <div>
@@ -95,8 +112,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                  ? statsById[selectedPlayer.id]?.goals ?? 0
-                  : 0}
+                    ? (statsById[selectedPlayer.id]?.goals ?? 0)
+                    : 0}
               </div>
             </div>
 
@@ -112,8 +129,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                  ? statsById[selectedPlayer.id]?.minutes ?? 0
-                  : 0}
+                    ? (statsById[selectedPlayer.id]?.minutes ?? 0)
+                    : 0}
               </div>
             </div>
 
@@ -129,8 +146,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                  ? statsById[selectedPlayer.id]?.assists ?? 0
-                  : 0}
+                    ? (statsById[selectedPlayer.id]?.assists ?? 0)
+                    : 0}
               </div>
             </div>
 
@@ -146,8 +163,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                  ? statsById[selectedPlayer.id]?.chances ?? 0
-                  : 0}
+                    ? (statsById[selectedPlayer.id]?.chances ?? 0)
+                    : 0}
               </div>
             </div>
 
@@ -163,8 +180,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                  ? statsById[selectedPlayer.id]?.dribbles ?? 0
-                  : 0}
+                    ? (statsById[selectedPlayer.id]?.dribbles ?? 0)
+                    : 0}
               </div>
             </div>
 
@@ -180,10 +197,13 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                  ? statsById[selectedPlayer.id]?.passes ?? 0
-                  : 0}
+                    ? (statsById[selectedPlayer.id]?.passes ?? 0)
+                    : 0}
               </div>
             </div>
+          </div>
+          <div className="w-full h-40 mt-10 mb-10 flex items-center justify-center">
+            <PlayerRadar data={radarStats} />
           </div>
         </div>
       </section>
