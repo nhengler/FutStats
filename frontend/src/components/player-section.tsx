@@ -5,6 +5,7 @@ import { Player } from "@/src/types/player";
 import { Stats } from "@/src/types/stats";
 import { playersList } from "../data/playersList";
 import { fetchPlayerStats } from "../services/playersApi";
+import { RadarData } from "../types/radarData";
 
 export default function PlayerSection() {
   /*---PLAYER SELECTION---*/
@@ -47,6 +48,18 @@ export default function PlayerSection() {
     }
     load();
   }, []);
+
+  /*---RADAR INFO---*/
+  const selectedId = selectedPlayer?.id
+  
+  const stats = selectedId ? statsById[selectedPlayer?.id] : null;
+
+  const radarStats = selectedPlayer && stats ? [
+    {attribute: "ATT", value: stats.goals ?? 0}, 
+    {attribute: "CRE", value: stats.goals ?? 0},
+    {attribute: "TEC", value: stats.goals ?? 0},
+    {attribute: "DRI", value: stats.goals ?? 0},
+  ] // change to radar values
 
   return (
     <div>
