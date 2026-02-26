@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Nav from "@/app/components/nav"
-import PlayerSection from "./components/player-section";
+import "@/styles/globals.css";
+import Nav from "@/src/components/nav"
+import PlayerSection from "@/src/components/player-section";
 
 export const metadata: Metadata = {
   title: "Create Next App",
