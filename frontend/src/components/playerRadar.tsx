@@ -6,6 +6,7 @@ import {
   PolarGrid,
   PolarAngleAxis,
   ResponsiveContainer,
+  PolarRadiusAxis,
 } from "recharts";
 
 import { RadarData } from "../types/radarData";
@@ -20,7 +21,8 @@ export default function PlayerRadar({ data }: Props) {
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={data}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="attribute" />
+          <PolarAngleAxis dataKey="label" />
+          <PolarRadiusAxis domain={[0, 100]} />
           <Radar
             dataKey="value"
             stroke="#22c55e"

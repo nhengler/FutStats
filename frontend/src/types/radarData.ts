@@ -1,4 +1,4 @@
 export type RadarData = {
-    attribute: string;
+    label: string;
     value: number;
 }

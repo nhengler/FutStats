@@ -7,6 +7,7 @@ import { playersList } from "../data/playersList";
 import { fetchPlayerStats } from "../services/playersApi";
 import { RadarData } from "../types/radarData";
 import PlayerRadar from "./playerRadar";
+import { buildRadarStats } from "../utils/radarMath";
 
 export default function PlayerSection() {
   /*---PLAYER SELECTION---*/
@@ -57,13 +58,8 @@ export default function PlayerSection() {
 
   const radarStats =
     selectedPlayer && stats
-      ? [
-          { attribute: "ATT", value: stats.goals ?? 0 },
-          { attribute: "CRE", value: stats.goals ?? 0 },
-          { attribute: "TEC", value: stats.goals ?? 0 },
-          { attribute: "DRI", value: stats.goals ?? 0 },
-        ]
-      : []; // change to radar values
+    ? buildRadarStats(stats) 
+    : []; 
 
   return (
     <div>
