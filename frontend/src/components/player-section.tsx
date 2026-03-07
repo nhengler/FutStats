@@ -28,7 +28,7 @@ export default function PlayerSection() {
       try {
         setIsLoading(true);
 
-        const season = 2023;
+        const season = 2026;
 
         const results = await Promise.all(
           playersList.map(async (p) => {

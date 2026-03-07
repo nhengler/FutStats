@@ -21,7 +21,7 @@ const MAX = {
   ATT: 2.0,
   CRE: 6.5,
   TEC: 5.0,
-  DRI: 4.5,
+  DRI: 5.0,
 };
 
 export function buildRadarStats(input: Stats) {
@@ -43,9 +43,25 @@ export function buildRadarStats(input: Stats) {
   const DRI = dribbles90 * WEIGHTS.dribbles;
 
   return [
-    { label: "ATT", value: normalize(ATT, MAX.ATT) },
-    { label: "CRE", value: normalize(CRE, MAX.CRE) },
-    { label: "TEC", value: normalize(TEC, MAX.TEC) },
-    { label: "DRI", value: normalize(DRI, MAX.DRI) },
+    {
+      label: "ATT",
+      display: `ATT ${Math.round(normalize(ATT, MAX.ATT))}`,
+      value: normalize(ATT, MAX.ATT),
+    },
+    {
+      label: "CRE",
+      display: `CRE ${Math.round(normalize(CRE, MAX.CRE))}`,
+      value: normalize(CRE, MAX.CRE),
+    },
+    {
+      label: "TEC",
+      display: `TEC ${Math.round(normalize(TEC, MAX.TEC))}`,
+      value: normalize(TEC, MAX.TEC),
+    },
+    {
+      label: "DRI",
+      display: `DRI ${Math.round(normalize(DRI, MAX.DRI))}`,
+      value: normalize(DRI, MAX.DRI),
+    },
   ];
 }

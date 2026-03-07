@@ -2,6 +2,22 @@ import { Player } from "../types/player";
 
 export const playersList: Player[] = [
   {
+    id: 10329,
+    label: "João Pedro",
+    name: "João Pedro",
+    position: "CF",
+    image: "/assets/pictures/Joao.png",
+    stats: {
+      goals: 0,
+      assists: 0,
+      passes: 0,
+      dribbles: 0,
+      chances: 0,
+      minutes: 0,
+    },
+  },
+  
+  {
     id: 276,
     label: "Neymar Jr",
     name: "Neymar Jr",
@@ -55,22 +71,6 @@ export const playersList: Player[] = [
     name: "Rodrygo",
     position: "LW / RW / CF",
     image: "/assets/pictures/Rodrygo.png",
-    stats: {
-      goals: 0,
-      assists: 0,
-      passes: 0,
-      dribbles: 0,
-      chances: 0,
-      minutes: 0,
-    },
-  },
-
-  {
-    id: 377122,
-    label: "Endrick",
-    name: "Endrick",
-    position: "CF",
-    image: "/assets/pictures/Endrick.png",
     stats: {
       goals: 0,
       assists: 0,

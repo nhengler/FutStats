@@ -21,8 +21,8 @@ export default function PlayerRadar({ data }: Props) {
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={data}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="label" />
-          <PolarRadiusAxis domain={[0, 100]} />
+          <PolarAngleAxis dataKey="display" />
+          <PolarRadiusAxis domain={[0, 100]} tick={false} />
           <Radar
             dataKey="value"
             stroke="#22c55e"
