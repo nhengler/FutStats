@@ -32,7 +32,11 @@ export default function PlayerSection() {
 
         const results = await Promise.all(
           playersList.map(async (p) => {
-            const stats = await fetchPlayerStats({ id: p.id, season: season });
+            const stats = await fetchPlayerStats({
+              id: p.id,
+              teamId: p.teamId,
+              season: season
+            });
             return { playerAtributes: p.id, stats };
           }),
         );
@@ -56,10 +60,7 @@ export default function PlayerSection() {
 
   const stats = selectedId ? statsById[selectedId] : null;
 
-  const radarStats =
-    selectedPlayer && stats
-    ? buildRadarStats(stats) 
-    : []; 
+  const radarStats = selectedPlayer && stats ? buildRadarStats(stats) : [];
 
   return (
     <div>

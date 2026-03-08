@@ -3,6 +3,8 @@ import { Player } from "../types/player";
 export const playersList: Player[] = [
   {
     id: 10329,
+    teamId: 49,
+    teamName: "Chelsea",
     label: "João Pedro",
     name: "João Pedro",
     position: "CF",
@@ -16,9 +18,11 @@ export const playersList: Player[] = [
       minutes: 0,
     },
   },
-  
+
   {
     id: 276,
+    teamId: 128,
+    teamName: "Santos",
     label: "Neymar Jr",
     name: "Neymar Jr",
     position: "LW / CF / MAT",
@@ -35,6 +39,8 @@ export const playersList: Player[] = [
 
   {
     id: 762,
+    teamId: 541,
+    teamName: "Real Madrid",
     label: "Vini Jr",
     name: "Vini Jr",
     position: "LW",
@@ -51,6 +57,8 @@ export const playersList: Player[] = [
 
   {
     id: 340279,
+    teamId: 121,
+    teamName: "Palmeiras",
     label: "Vitor Roque",
     name: "Vitor Roque",
     position: "CF",
@@ -67,6 +75,8 @@ export const playersList: Player[] = [
 
   {
     id: 10009,
+    teamId: 541,
+    teamName: "Real Madrid",
     label: "Rodrygo",
     name: "Rodrygo",
     position: "LW / RW / CF",
@@ -83,6 +93,8 @@ export const playersList: Player[] = [
 
   {
     id: 425733,
+    teamId: 49,
+    teamName: "Chelsea",
     label: "Estevão",
     name: "Estevão",
     position: "RW ",
@@ -98,7 +110,27 @@ export const playersList: Player[] = [
   },
 
   {
+    id: 377122,
+    teamId: 80,
+    teamName: "Lyon",
+    label: "Endrick",
+    name: "Endrick",
+    position: "CF",
+    image: "/assets/pictures/Endrick.png",
+    stats: {
+      goals: 0,
+      assists: 0,
+      passes: 0,
+      dribbles: 0,
+      chances: 0,
+      minutes: 0,
+    },
+  },
+
+  {
     id: 1496,
+    teamId: 529,
+    teamName: "Barcelona",
     label: "Raphinha",
     name: "Raphinha",
     position: "LW / RW / MAT",

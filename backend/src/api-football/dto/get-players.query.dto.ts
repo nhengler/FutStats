@@ -5,7 +5,10 @@ export class GetPlayersQueryDto{
     player: string;
     
     @IsNumberString()
-    team: string;
+    teamId: string;
+    
+    @IsNumberString()
+    teamName: string;
     
     @IsNumberString()
     league: string;

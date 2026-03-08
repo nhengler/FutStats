@@ -1,9 +1,10 @@
 import { Stats } from "../types/stats";
 
-export async function fetchPlayerStats(params: { id: number; season: number }) {
+export async function fetchPlayerStats(params: { id: number; teamId: number; season: number }) {
   const searchParams = new URLSearchParams();
 
   searchParams.set("id", String(params.id)); // query string (URL) is ALWAYS text
+  searchParams.set("team", String(params.teamId)); // query string (URL) is ALWAYS text
   searchParams.set("season", String(params.season)); // query string (URL) is ALWAYS text
 
   const response = await fetch(
@@ -14,9 +15,7 @@ export async function fetchPlayerStats(params: { id: number; season: number }) {
     throw new Error("Erro ao buscar stats");
   }
 
-  const data = await response.json();
-
-  const statistics = Array.isArray(data) ? data[0] : data; // If it's an array, it takes the first item. If not, it uses the data itself.
+  const statistics = await response.json(); 
 
   return { 
     goals: statistics.goals ?? 0,
