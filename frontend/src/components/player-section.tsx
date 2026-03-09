@@ -28,14 +28,12 @@ export default function PlayerSection() {
       try {
         setIsLoading(true);
 
-        const season = 2025;
-
         const results = await Promise.all(
           playersList.map(async (p) => {
             const stats = await fetchPlayerStats({
               id: p.id,
               team: p.team,
-              season: season,
+              season: p.season
             });
             return { playerAtributes: p.id, stats };
           })

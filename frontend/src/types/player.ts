@@ -8,5 +8,6 @@ export type Player = {
   image: string;
   position: string;
   label: string;
+  season: number;
   stats: Stats;
 };

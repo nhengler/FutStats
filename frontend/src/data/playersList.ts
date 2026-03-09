@@ -9,6 +9,7 @@ export const playersList: Player[] = [
     name: "João Pedro",
     position: "CF",
     image: "/assets/pictures/Joao.png",
+    season: 2025,
     stats: {
       goals: 0,
       assists: 0,
@@ -27,6 +28,7 @@ export const playersList: Player[] = [
     name: "Neymar Jr",
     position: "LW / CF / MAT",
     image: "/assets/pictures/Ney.png",
+    season: 2026,
     stats: {
       goals: 0,
       assists: 0,
@@ -45,6 +47,7 @@ export const playersList: Player[] = [
     name: "Vini Jr",
     position: "LW",
     image: "/assets/pictures/Vini.png",
+    season: 2025,
     stats: {
       goals: 0,
       assists: 0,
@@ -63,6 +66,7 @@ export const playersList: Player[] = [
     name: "Vitor Roque",
     position: "CF",
     image: "/assets/pictures/Roque.png",
+    season: 2026,
     stats: {
       goals: 0,
       assists: 0,
@@ -81,6 +85,7 @@ export const playersList: Player[] = [
     name: "Rodrygo",
     position: "LW / RW / CF",
     image: "/assets/pictures/Rodrygo.png",
+    season: 2025,
     stats: {
       goals: 0,
       assists: 0,
@@ -99,6 +104,7 @@ export const playersList: Player[] = [
     name: "Estevão",
     position: "RW ",
     image: "/assets/pictures/Estevao.png",
+    season: 2025,
     stats: {
       goals: 0,
       assists: 0,
@@ -117,6 +123,7 @@ export const playersList: Player[] = [
     name: "Endrick",
     position: "CF",
     image: "/assets/pictures/Endrick.png",
+    season: 2025,
     stats: {
       goals: 0,
       assists: 0,
@@ -135,6 +142,7 @@ export const playersList: Player[] = [
     name: "Raphinha",
     position: "LW / RW / MAT",
     image: "/assets/pictures/Raphinha.png",
+    season: 2025,
     stats: {
       goals: 0,
       assists: 0,
