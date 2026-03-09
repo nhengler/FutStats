@@ -10,11 +10,11 @@ export function normalize(value: number, max: number) {
 }
 
 const WEIGHTS = {
-  goals: 2.0,
+  goals: 1.8,
   assists: 1.4,
-  chances: 1.2,
+  chances: 1.0,
   dribbles: 1.0,
-  passes: 0.15,
+  passes: 0.015,
 };
 
 const MAX = {

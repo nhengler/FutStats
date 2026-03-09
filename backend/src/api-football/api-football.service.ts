@@ -23,28 +23,32 @@ export class ApiFootballService {
     console.log('errors:', data.errors);
 
     return data.response.map((item) => {
-      const stats =
-        item.statistics?.find((s) => s.team?.id === Number(query.team)) ??
-        item.statistics?.[0];
 
-      console.log('team pedido:', query.team);
-
-      console.log(
-        'teams disponíveis:',
-        item.statistics?.map((s) => ({
-          id: s.team?.id,
-          name: s.team?.name,
-        })),
+      const teamStats = item.statistics?.filter(
+        (s) => s.team?.id === Number(query.team)
+      ) ?? [];
+    
+      const totals = teamStats.reduce(
+        (acc, s) => {
+          acc.goals += s.goals?.total ?? 0;
+          acc.assists += s.goals?.assists ?? 0;
+          acc.dribbles += s.dribbles?.success ?? 0;
+          acc.passes += s.passes?.total ?? 0;
+          acc.chances += s.passes?.key ?? 0;
+          acc.minutes += s.games?.minutes ?? 0;
+          return acc;
+        },
+        {
+          goals: 0,
+          assists: 0,
+          dribbles: 0,
+          passes: 0,
+          chances: 0,
+          minutes: 0,
+        }
       );
-
-      return {
-        goals: stats?.goals?.total ?? 0,
-        assists: stats?.goals?.assists ?? 0,
-        dribbles: stats?.dribbles?.success ?? 0,
-        passes: stats?.passes?.total ?? 0,
-        chances: stats?.passes?.key ?? 0,
-        minutes: stats?.games?.minutes ?? 0,
-      };
+    
+      return totals;
     });
   }
 }
