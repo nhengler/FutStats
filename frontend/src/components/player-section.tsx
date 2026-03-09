@@ -28,17 +28,17 @@ export default function PlayerSection() {
       try {
         setIsLoading(true);
 
-        const season = 2026;
+        const season = 2025;
 
         const results = await Promise.all(
           playersList.map(async (p) => {
             const stats = await fetchPlayerStats({
               id: p.id,
-              teamId: p.teamId,
-              season: season
+              team: p.team,
+              season: season,
             });
             return { playerAtributes: p.id, stats };
-          }),
+          })
         );
 
         const map: Record<number, Stats> = {};
@@ -109,8 +109,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                    ? (statsById[selectedPlayer.id]?.goals ?? 0)
-                    : 0}
+                  ? statsById[selectedPlayer.id]?.goals ?? 0
+                  : 0}
               </div>
             </div>
 
@@ -126,8 +126,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                    ? (statsById[selectedPlayer.id]?.minutes ?? 0)
-                    : 0}
+                  ? statsById[selectedPlayer.id]?.minutes ?? 0
+                  : 0}
               </div>
             </div>
 
@@ -143,8 +143,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                    ? (statsById[selectedPlayer.id]?.assists ?? 0)
-                    : 0}
+                  ? statsById[selectedPlayer.id]?.assists ?? 0
+                  : 0}
               </div>
             </div>
 
@@ -160,8 +160,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                    ? (statsById[selectedPlayer.id]?.chances ?? 0)
-                    : 0}
+                  ? statsById[selectedPlayer.id]?.chances ?? 0
+                  : 0}
               </div>
             </div>
 
@@ -177,8 +177,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                    ? (statsById[selectedPlayer.id]?.dribbles ?? 0)
-                    : 0}
+                  ? statsById[selectedPlayer.id]?.dribbles ?? 0
+                  : 0}
               </div>
             </div>
 
@@ -194,8 +194,8 @@ export default function PlayerSection() {
                 {isLoading
                   ? "..."
                   : selectedPlayer
-                    ? (statsById[selectedPlayer.id]?.passes ?? 0)
-                    : 0}
+                  ? statsById[selectedPlayer.id]?.passes ?? 0
+                  : 0}
               </div>
             </div>
           </div>

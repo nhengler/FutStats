@@ -3,7 +3,7 @@ import { Player } from "../types/player";
 export const playersList: Player[] = [
   {
     id: 10329,
-    teamId: 49,
+    team: 49,
     teamName: "Chelsea",
     label: "João Pedro",
     name: "João Pedro",
@@ -21,7 +21,7 @@ export const playersList: Player[] = [
 
   {
     id: 276,
-    teamId: 128,
+    team: 128,
     teamName: "Santos",
     label: "Neymar Jr",
     name: "Neymar Jr",
@@ -39,7 +39,7 @@ export const playersList: Player[] = [
 
   {
     id: 762,
-    teamId: 541,
+    team: 541,
     teamName: "Real Madrid",
     label: "Vini Jr",
     name: "Vini Jr",
@@ -57,7 +57,7 @@ export const playersList: Player[] = [
 
   {
     id: 340279,
-    teamId: 121,
+    team: 121,
     teamName: "Palmeiras",
     label: "Vitor Roque",
     name: "Vitor Roque",
@@ -75,7 +75,7 @@ export const playersList: Player[] = [
 
   {
     id: 10009,
-    teamId: 541,
+    team: 541,
     teamName: "Real Madrid",
     label: "Rodrygo",
     name: "Rodrygo",
@@ -93,7 +93,7 @@ export const playersList: Player[] = [
 
   {
     id: 425733,
-    teamId: 49,
+    team: 49,
     teamName: "Chelsea",
     label: "Estevão",
     name: "Estevão",
@@ -111,7 +111,7 @@ export const playersList: Player[] = [
 
   {
     id: 377122,
-    teamId: 80,
+    team: 80,
     teamName: "Lyon",
     label: "Endrick",
     name: "Endrick",
@@ -129,7 +129,7 @@ export const playersList: Player[] = [
 
   {
     id: 1496,
-    teamId: 529,
+    team: 529,
     teamName: "Barcelona",
     label: "Raphinha",
     name: "Raphinha",

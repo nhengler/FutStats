@@ -3,7 +3,7 @@ import { Stats } from "./stats";
 export type Player = {
   id: number;
   name: string;
-  teamId: number;
+  team: number;
   teamName: string;
   image: string;
   position: string;
