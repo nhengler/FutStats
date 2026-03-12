@@ -18,7 +18,7 @@ This project was also an opportunity to practice:
 - Conditional rendering
 - Custom business logic for player evaluation
 
-
+![raphinha stats](/frontend/public/assets/pictures/raphinha-stats.png)
 
 ---
 
