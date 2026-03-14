@@ -9,7 +9,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:3000',
       'http://localhost:3001',
-      'https://SEU-FRONTEND.vercel.app',
+      'https://fut-stats-sigma.vercel.app',
     ],
   });
 
