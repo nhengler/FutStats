@@ -12,7 +12,7 @@ export async function fetchPlayerStats(params: {
   searchParams.set("season", String(params.season)); // query string (URL) is ALWAYS text
 
   const response = await fetch(
-    `http://localhost:3000/players?${searchParams.toString()}`
+    `${process.env.NEXT_PUBLIC_API_URL}/players?${searchParams.toString()}`
   );
 
   console.log("params enviados:", params);
