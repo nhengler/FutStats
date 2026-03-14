@@ -1,5 +1,4 @@
 export class PlayerResponseDto{
-    id: number 
     goals: number
     assists: number
     dribbles: number
